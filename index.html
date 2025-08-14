@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Urbana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+    header {
+      background: linear-gradient(90deg, #ff4d4d, #ff9900);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #222;
+    }
+    .carrito-btn {
+      background: white;
+      color: #ff4d4d;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1556909211-36987daf7b4b?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+    .productos {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .producto {
+      background: #1a1a1a;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .producto:hover {
+      transform: scale(1.05);
+    }
+    .producto img {
+      width: 100%;
+      display: block;
+    }
+    .producto-info {
+      padding: 1rem;
+    }
+    .producto-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .precio {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(90deg, #ff4d4d, #ff9900);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #ff9900, #ff4d4d);
+    }
+
+    /* Panel del carrito */
+    #carrito-panel {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 320px;
+      height: 100%;
+      background: #1a1a1a;
+      box-shadow: -4px 0 10px rgba(0,0,0,0.7);
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      z-index: 1000;
+    }
+    #lista-carrito {
+      flex: 1;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      overflow-y: auto;
+      padding-bottom: 4rem;
+    }
+    #whatsapp {
+      background: green;
+      padding: 0.8rem;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: auto;
+    }
+    .cerrar {
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Tienda Urbana</h1>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <span class="carrito-btn" onclick="abrirCarrito()">🛒 Carrito</span>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <h2>Estilo Urbano, Comodidad Total</h2>
+</section>
+
+<section class="productos" id="productos">
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1528701800489-20beaf6d7c9f?auto=format&fit=crop&w=800&q=80" alt="Zapatillas Urbanas">
+    <div class="producto-info">
+      <h3>Zapatillas Urbanas</h3>
+      <p class="precio">$59.99</p>
+      <a href="#" class="btn" onclick="agregarAlCarrito('Zapatillas Urbanas', 59.99)">Añadir al carrito</a>
+    </div>
+  </div>
+  <div class="producto">
+    <img src="https://images.unsplash.com/photo-1531781378841-0c6dfc6f5f0c?auto=format&fit=crop&w=800&q=80" alt="Chaqueta Streetwear">
+    <div class="producto-info">
+      <h3>Chaqueta Streetwear</h3>
+      <p class="precio">$79.99</p>
+      <a href="#" class="btn" onclick="agregarAlCarrito('Chaqueta Streetwear', 79.99)">Añadir al carrito</a>
+    </div>
+  </div>
+</section>
+
+<!-- Panel del carrito -->
+<div id="carrito-panel">
+  <span class="cerrar" onclick="cerrarCarrito()">✖</span>
+  <h2>Carrito</h2>
+  <ul id="lista-carrito"></ul>
+  <a id="whatsapp" href="#" target="_blank">Comprar por WhatsApp</a>
+</div>
+
+<footer style="background:#111; padding:1rem; text-align:center;">
+  <p>© 2025 Tienda Urbana - Todos los derechos reservados</p>
+</footer>
+
+<script>
+  let carrito = [];
+
+  function abrirCarrito() {
+    document.getElementById("carrito-panel").style.right = "0";
+  }
+
+  function cerrarCarrito() {
+    document.getElementById("carrito-panel").style.right = "-350px";
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    mostrarCarrito();
+  }
+
+  function mostrarCarrito() {
+    const lista = document.getElementById("lista-carrito");
+    lista.innerHTML = "";
+    carrito.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+      lista.appendChild(li);
+    });
+    actualizarWhatsApp();
+  }
+
+  function actualizarWhatsApp() {
+    let mensaje = "Hola, quiero comprar:\n";
+    let total = 0;
+    carrito.forEach(item => {
+      mensaje += `- ${item.nombre} ($${item.precio.toFixed(2)})\n`;
+      total += item.precio;
+    });
+    mensaje += `Total: $${total.toFixed(2)}`;
+    document.getElementById("whatsapp").href = `https://wa.me/593 967174002?text=${encodeURIComponent(mensaje)}`;
+  }
+</script>
+
+</body>
+</html>
+
