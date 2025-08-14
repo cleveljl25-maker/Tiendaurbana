@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ropa - Tienda Urbana</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🛍 Ropa - Tienda Urbana</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Productos ⮟</a>
+                <ul class="dropdown-content">
+                    <li><a href="ropa.html" target="_blank">Ropa</a></li>
+                    <li><a href="zapatos.html" target="_blank">Zapatos</a></li>
+                </ul>
+            </li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="imagenes/Short Negro.jpeg" alt="Short Negro">
+        <h3>Short Negro</h3>
+        <p>$30</p>
+        <button onclick="addToCart('Short Negro', 30, 'imagenes/Short Negro.jpg')">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <img src="imagenes/Pantalon Corto Blanco.jpeg" alt="Pantalon Corto Blanco">
+        <h3>Pantalon Corto Blanco</h3>
+        <p>$45</p>
+        <button onclick="addToCart('Pantalon Corto Blanco', 45, 'imagenes/Pantalon Corto Blanco.jpeg')">Agregar al carrito</button>
+    </div>
+</div>
+
+<div class="cart">
+    <h2>Carrito de compras</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Total: $0</div>
+    <a id="whatsapp-link" class="whatsapp-btn" target="_blank">📲 Enviar pedido por WhatsApp</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

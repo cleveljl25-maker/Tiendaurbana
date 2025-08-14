@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zapatos - Tienda Urbana</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>👟 Zapatos - Tienda Urbana</h1>
+     <nav>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="dropdown">
+                <a href="#">Productos ⮟</a>
+                <ul class="dropdown-content">
+                    <li><a href="ropa.html" target="_blank">Ropa</a></li>
+                    <li><a href="zapatos.html" target="_blank">Zapatos</a></li>
+                </ul>
+            </li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="imagenes/Bad Bunny Response.jpeg" alt="Tenis Urbanas">
+        <h3>Bad Bunny Response</h3>
+        <p>$70</p>
+        <button onclick="addToCart('Tenis Urbanas', 70, 'imagenes/Bad Bunny Response.jpeg')">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <img src="imagenes/Louis Vuitton Stake.jpeg" alt="Tenis Deportivos">
+        <h3>Louis Vuitton Stake</h3>
+        <p>$80</p>
+        <button onclick="addToCart('Tenis Deportivos', 80, 'Louis Vuitton Stake.jpeg')">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <img src="imagenes/Tenis Bape Gris.jpeg" alt="Tenis Deportivos">
+        <h3>Tenis Bape Gris</h3>
+        <p>$70</p>
+        <button onclick="addToCart('Tenis Bape Gris', 70, 'imagenes/Tenis Bape Gris.jpeg')">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <img src="imagenes/Nike SB Azul.jpeg" alt="Tenis Deportivos">
+        <h3>Nike SB Azul</h3>
+        <p>$55</p>
+        <button onclick="addToCart('Nike SB Azul', 55, 'imagenes/Nike SB Azul.jpeg')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="imagenes/Nike SB blanco.jpeg" alt="Tenis Deportivos">
+        <h3>Nike SB blanco</h3>
+        <p>$70</p>
+        <button onclick="addToCart('Nike SB blanco', 70, 'imagenes/Nike SB blanco.jpeg')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="imagenes/Accis Kayano 2.jpeg" alt="Tenis Deportivos">
+        <h3>Accis Kayano </h3>
+        <p>$70</p>
+        <button onclick="addToCart('Accis Kayano', 70, 'imagenes/Accis Kayano 2.jpeg')">Agregar al carrito</button>
+    </div>
+    
+</div>
+
+<div class="cart">
+    <h2>Carrito de compras</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Total: $0</div>
+    <a id="whatsapp-link" class="whatsapp-btn" target="_blank">📲 Enviar pedido por WhatsApp</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
