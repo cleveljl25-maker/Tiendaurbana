@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda Urbana</title>
+<style>
+/* ======= ESTILOS GENERALES ======= */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+}
+header {
+    background: linear-gradient(90deg, #111, #444);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* ======= PRODUCTOS ======= */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px;
+    justify-content: center;
+}
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 270px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.product h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+.product p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+}
+.product button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background 0.2s ease;
+}
+.product button:hover {
+    background: #218838;
+}
+
+/* ======= CARRITO ======= */
+.cart {
+    background: white;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.cart h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+.cart-item span {
+    flex: 1;
+}
+.remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+.total {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* ======= BOTÓN WHATSAPP ======= */
+.whatsapp-btn {
+    background: #25d366;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+.whatsapp-btn:hover {
+    background: #1ebe5c;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+    .product {
+        width: 90%;
+    }
+    .cart {
+        margin: 10px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🛍 Tienda Urbana</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="Camisa beari.jpeg" alt="Producto 1">
+        <h3>Camisa hh</h3>
+        <p>$50</p>
+        <button onclick="addToCart('Zapatillas Urbanas', 50, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+    <div class="product">
+        <img src="Camisa Helsstar.jpeg" alt="camisa ">
+        <h3>Camiseta Oversize</h3>
+        <p>$25</p>
+        <button onclick="addToCart('Camiseta Oversize', 25, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="Camisa Helsstar.jpeg" alt="camisa ">
+        <h3>Camiseta Oversize</h3>
+        <p>$25</p>
+        <button onclick="addToCart('Camiseta Oversize', 25, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="Camisa Helsstar.jpeg" alt="camisa ">
+        <h3>Camiseta Oversize</h3>
+        <p>$25</p>
+        <button onclick="addToCart('Camiseta Oversize', 25, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="Camisa Helsstar.jpeg" alt="camisa ">
+        <h3>Camiseta Oversize</h3>
+        <p>$25</p>
+        <button onclick="addToCart('Camiseta Oversize', 25, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+     <div class="product">
+        <img src="Camisa Helsstar.jpeg" alt="camisa ">
+        <h3>Camiseta Oversize</h3>
+        <p>$25</p>
+        <button onclick="addToCart('Camiseta Oversize', 25, 'https://via.placeholder.com/250')">Agregar al carrito</button>
+    </div>
+</div>
+
+<div class="cart">
+    <h2>Carrito de compras</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Total: $0</div>
+    <a id="whatsapp-link" class="whatsapp-btn" target="_blank">📲 Enviar pedido por WhatsApp</a>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price, image) {
+    let item = cart.find(p => p.name === name);
+    if (item) {
+        item.quantity++;
+    } else {
+        cart.push({ name, price, image, quantity: 1 });
+    }
+    saveCart();
+    updateCart();
+}
+
+function removeFromCart(name) {
+    cart = cart.filter(p => p.name !== name);
+    saveCart();
+    updateCart();
+}
+
+function updateCart() {
+    let cartItems = document.getElementById("cart-items");
+    let cartTotal = document.getElementById("cart-total");
+    let whatsappLink = document.getElementById("whatsapp-link");
+
+    cartItems.innerHTML = "";
+    let total = 0;
+    let message = "🛒 Pedido:\n";
+
+    cart.forEach(item => {
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}">
+                <span>${item.name} x${item.quantity} - $${item.price * item.quantity}</span>
+                <button class="remove-btn" onclick="removeFromCart('${item.name}')">X</button>
+            </div>
+        `;
+        total += item.price * item.quantity;
+        message += `\n📌 ${item.name} x${item.quantity} - $${item.price * item.quantity}\nFoto: ${item.image}`;
+    });
+
+    cartTotal.textContent = `Total: $${total}`;
+    message += `\n\n💰 Total: $${total}`;
+
+    let phoneNumber = "593967174002"; // tu número
+    let encodedMessage = encodeURIComponent(message);
+    whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+}
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+updateCart();
+</script>
+
+</body>
+</html>
+
